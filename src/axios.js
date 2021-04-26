@@ -1,17 +1,11 @@
-import axios from "axios";
+import axios from 'axios';
 
 const instance = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com/'
-})
-
-instance.defaults.headers.common['instance-header'] = 'Hello';
-instance.interceptors.request.use(request => {
-    console.log(request);
-    return request
-}, err => {
-    return Promise.reject(err);
+    baseURL: 'https://jsonplaceholder.typicode.com'
 });
 
+instance.defaults.headers.common['Authorization'] = 'AUTH TOKEN FROM INSTANCE';
 
+// instance.interceptors.request...
 
 export default instance;
