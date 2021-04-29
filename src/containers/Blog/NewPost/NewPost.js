@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 import './NewPost.css';
+import {Redirect} from "react-router-dom";
 
 class NewPost extends Component {
     state = {
         title: '',
         content: '',
-        author: 'Max'
+        author: 'Max',
     }
 
     componentDidMount () {
@@ -24,6 +25,7 @@ class NewPost extends Component {
             .then(response => {
                 console.log(response);
             });
+        this.props.history.replace('/posts');
     }
 
     render () {
